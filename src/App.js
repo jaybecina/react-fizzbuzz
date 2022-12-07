@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { Container } from "react-bootstrap";
+
+const number = [];
+for (let i = 1; i < 101; i++) {
+  if (i % 15 === 0) {
+    number.push("FizzBuzz");
+  } else if (i % 5 === 0) {
+    number.push("Buzz");
+  } else if (i % 3 === 0) {
+    number.push("Fizz");
+  } else {
+    number.push(i);
+  }
+}
+console.log(number);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <h1>FizzBuzz</h1>
+      <Container>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Write a program that prints the numbers from 1 to 100. However, for
+          multiples of 3 print “Fizz” instead of the number, for multiples of 5
+          print “Buzz” instead of the number and numbers that are multiples of
+          both 3 and 5 print “FizzBuzz” instead of the number
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <p>Answer:</p>
+        {number?.map((num) => (
+          <p>{num}</p>
+        ))}
+      </Container>
     </div>
   );
 }
